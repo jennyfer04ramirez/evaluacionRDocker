@@ -1,0 +1,16 @@
+<div>
+  <div *ngFor="let message of messages">
+      <div>{{ message.message }}</div>
+  </div>
+</div>
+
+<div>
+  <input 
+    type="text" 
+    placeholder="Type your message" 
+    [(ngModel)]="text" 
+    (keydown.enter)="sendMessage()"
+    autocomplete="off" 
+  />
+  <button (click)="sendMessage()">Send</button>
+</div>
