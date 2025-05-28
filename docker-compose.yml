@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  angular-client:
+    build: ./angularClient
+    ports:
+      - "4200:80"
+    depends_on:
+      - servidor-websocket
+    networks:
+      - app-network
+
+  servidor-websocket:
+    build: ./servidor
+    hostname: servidor-websocket
+    container_name: servidor-websocket
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
